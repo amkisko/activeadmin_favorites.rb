@@ -1,0 +1,60 @@
+en:
+  active_admin:
+    favorites:
+      add_favorite: Add to favorites
+      advanced_macros: Advanced macros
+      created: Favorite saved
+      creator_column: Creator
+      edit_favorite: Edit favorite
+      filters_column: Filters
+      form_panel: Favorite details
+      macros_hint: Choose shortcut templates to keep date filters up to date when you open this favorite.
+      macros_json_hint: JSON array of macro objects. Use only when templates are not enough.
+      macros_json_invalid: Macros JSON is invalid
+      macros_panel: Dynamic filters
+      menu: Favorites
+      no_detected_ranges: No date range filters detected in the current view. Use advanced macros if needed.
+      open: Open
+      published: Published for everyone
+      updated: Favorite updated
+      use_advanced_macros: Edit macros as JSON
+      use_dynamic_range: Use dynamic range
+      visibility:
+        mine: Only me
+        published: "Published (%{time})"
+      visibility_column: Visibility
+      macro_templates:
+        previous_calendar_month: Previous calendar month
+        current_calendar_month: Current calendar month
+        previous_calendar_day: Previous day
+        current_calendar_day: Today
+        rolling_last_7_days: Last 7 days
+        rolling_last_30_days: Last 30 days
+        previous_fiscal_year: Previous fiscal year (Apr–Mar)
+        current_fiscal_year_to_date: Current fiscal year to date (Apr–Mar)
+      personalize_page: Personalize page
+      personalization_region: Page personalization
+      save_default: Save as my default
+      reset_default: Reset to defaults
+      save_lens_favorite: Save lens as favorite
+      include_layout: Include current page layout
+      lens_summary: Page layout
+      lens_created: Lens favorite saved
+      combined_created: Combined favorite saved
+      layout_saved: Page layout saved
+      layout_reset: Page layout reset
+      kind_column: Type
+      kind_navigation: Favorite types
+      no_personalization_items: No personalization options are available on this page.
+      kinds:
+        all: All
+        filters: Filters
+        lens: Lens
+        combined: Combined
+      groups:
+        columns: Columns
+        filters: Filters
+        action_items: Actions
+        panels: Panels
+        show_rows: Rows
+      block_column: Custom column %{position}

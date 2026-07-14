@@ -1,0 +1,17 @@
+# Copy these keys into your host locale files (for example config/locales/activeadmin_favorites.fi.yml).
+# The gem loads English from config/locales/activeadmin_favorites.en.yml automatically.
+#
+# Merge active_admin.favorites into each locale you support.
+
+en:
+  active_admin:
+    favorites:
+      add_to_favorites: Add to favorites
+      personalize_page: Personalize page
+      hub_title: Favorites
+      filters_tab: Filters
+      lens_tab: Layout
+      combined_tab: Combined
+      save_lens_favorite: Save lens as favorite
+      lens_created: Layout favorite saved
+      combined_created: Combined favorite saved

@@ -1,0 +1,5 @@
+module ActiveAdmin
+  module Favorites
+    VERSION: String
+  end
+end

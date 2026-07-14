@@ -1,0 +1,53 @@
+<% bookmark = f.object %>
+<% template_options = ActiveAdmin::Favorites::Favorite::MacroCatalog.options_for_select %>
+<%= hidden_field_tag :macro_form_submitted, "1" %>
+
+<fieldset class="inputs">
+  <legend><span><%= t("active_admin.favorites.macros_panel") %></span></legend>
+  <p class="inline-hints"><%= t("active_admin.favorites.macros_hint") %></p>
+
+  <% if bookmark.macro_form_rows.any? %>
+    <ol class="space-y-4 list-none p-0">
+      <% bookmark.macro_form_rows.each_with_index do |row, index| %>
+        <li class="rounded-md border border-gray-200 p-4 dark:border-white/10">
+          <div class="font-medium text-sm mb-2">
+            <%= row[:attribute].to_s.tr("_", " ") %>
+            <% if row[:gteq].present? || row[:lteq].present? %>
+              <span class="text-gray-500">
+                (<%= [row[:gteq], row[:lteq]].compact.join(" – ") %>)
+              </span>
+            <% end %>
+          </div>
+          <%= hidden_field_tag "macro_template_assignments[#{index}][attribute]", row[:attribute] %>
+          <div class="flex flex-wrap items-center gap-4">
+            <label class="inline-flex items-center gap-2 text-sm">
+              <%= check_box_tag "macro_template_assignments[#{index}][enabled]", "1", row[:enabled], id: "macro_template_assignments_#{index}_enabled" %>
+              <%= t("active_admin.favorites.use_dynamic_range") %>
+            </label>
+            <%= select_tag "macro_template_assignments[#{index}][name]",
+              options_for_select(template_options, row[:name]),
+              id: "macro_template_assignments_#{index}_name",
+              class: "rounded-md border-gray-300 text-sm dark:border-white/20 dark:bg-gray-900" %>
+          </div>
+        </li>
+      <% end %>
+    </ol>
+  <% else %>
+    <p class="text-sm text-gray-600 dark:text-gray-300"><%= t("active_admin.favorites.no_detected_ranges") %></p>
+  <% end %>
+</fieldset>
+
+<details class="mt-6 rounded-md border border-gray-200 p-4 dark:border-white/10">
+  <summary class="cursor-pointer text-sm font-medium"><%= t("active_admin.favorites.advanced_macros") %></summary>
+  <div class="mt-4 space-y-3">
+    <label class="inline-flex items-center gap-2 text-sm">
+      <%= check_box_tag "favorite[use_advanced_macros]", "1", bookmark.use_advanced_macros, id: "favorite_use_advanced_macros" %>
+      <%= t("active_admin.favorites.use_advanced_macros") %>
+    </label>
+    <%= text_area_tag "favorite[macros_json]", bookmark.macros_json_for_form,
+      rows: 10,
+      class: "w-full font-mono text-xs rounded-md border-gray-300 dark:border-white/20 dark:bg-gray-900",
+      spellcheck: false %>
+    <p class="text-xs text-gray-500"><%= t("active_admin.favorites.macros_json_hint") %></p>
+  </div>
+</details>

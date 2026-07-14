@@ -1,0 +1,13 @@
+def attributes_table(*args, &block)
+  attributes_table_for resource, *args, &block
+end
+
+div class: "main-content-container" do
+  if page_presenter.block
+    instance_exec resource, &page_presenter.block
+  else
+    render "show_default"
+  end
+end
+
+render partial: "active_admin/favorites/lens_catalog_data", locals: {action_name: "show", render_context: self}

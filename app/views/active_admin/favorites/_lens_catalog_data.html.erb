@@ -1,0 +1,9 @@
+<% catalog_payload = ActiveAdmin::Favorites::ViewLens::Applicator.catalog_payload(
+  active_admin_config: active_admin_config,
+  action: action_name,
+  render_context: local_assigns.fetch(:render_context) { self }
+) %>
+<script
+  type="application/json"
+  id="favorites-lens-catalog-<%= active_admin_config.resource_name.route_key %>-<%= action_name %>"
+><%= catalog_payload.to_json %></script>

@@ -1,0 +1,10 @@
+spec/activeadmin/favorites/view_lens/applicator_spec.rb
+spec/activeadmin/favorites/view_lens/catalog_spec.rb
+spec/activeadmin/favorites/view_lens/layout_spec.rb
+spec/lib/activeadmin/favorites/migration_helpers_spec.rb
+spec/lib/activeadmin/favorites/migration_support_spec.rb
+spec/models/favorite/macro_builder_spec.rb
+spec/models/favorite/macro_resolver_spec.rb
+spec/models/favorite_spec.rb
+spec/requests/admin_favorites_spec.rb
+spec/requests/view_lens_preferences_spec.rb
