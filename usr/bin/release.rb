@@ -5,7 +5,7 @@ VERSION_FILE = "lib/activeadmin/favorites/version.rb"
 POLYRUN_WORKERS = 5
 RELEASE_INTEGRATION = false
 POLYRUN_MERGE_FORMATS = nil
-APPRAISAL_GEMFILES = %w[rails72 rails8ruby34 rails8ruby4 rails8truffleruby].freeze
+APPRAISAL_GEMFILES = %w[rails72 rails8ruby34 rails8ruby4].freeze
 
 require "fileutils"
 require_relative "../lib/release_version_check"

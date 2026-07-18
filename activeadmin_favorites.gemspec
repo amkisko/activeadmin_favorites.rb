@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = "Saved filter bookmarks, per-resource layout preferences, and a cogwheel personalization UI for ActiveAdmin index and show pages."
   spec.license = "MIT"
   spec.platform = Gem::Platform::RUBY
-  spec.required_ruby_version = ">= 3.2.0"
+  spec.required_ruby_version = ">= 3.4"
 
   repository_url = "https://github.com/amkisko/activeadmin_favorites.rb"
 
