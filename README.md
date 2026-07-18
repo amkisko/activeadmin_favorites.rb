@@ -111,6 +111,16 @@ make test
 
 See `spec/README.md` for focused runs and coverage notes.
 
+If native extensions fail to load after switching Ruby installs (for example mise vs rbenv with the same version), wipe and reinstall both bundle trees with one active Ruby:
+
+```bash
+rm -rf vendor/bundle
+bundle install
+
+rm -rf gemfiles/vendor/bundle
+bundle exec appraisal install
+```
+
 ## Links
 
 - [GitHub](https://github.com/amkisko/activeadmin_favorites.rb)
