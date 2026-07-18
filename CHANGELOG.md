@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- CI: run Rails 7.2 appraisal on Ruby 3.4; refresh lockfiles for current advisories (`loofah` 2.25.2, `rails-html-sanitizer` 1.7.1) and development gems (`rbs` ~> 4).
+
 ## 0.1.0 (2026-07-13)
 
 - Initial public release: saved filter favorites and view lens personalization for ActiveAdmin 4.

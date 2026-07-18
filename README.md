@@ -6,8 +6,8 @@ Saved filter favorites, per-resource view lens defaults, and a cogwheel personal
 
 ## Requirements
 
-- Ruby 3.2+
-- Rails 7.2+ (Rails 8 and Ruby 4 tested in CI)
+- Ruby 3.2+ (CI matrix: Ruby 3.4, 4.0, and TruffleRuby)
+- Rails 7.2+ (Rails 7.2 and 8.1 tested in CI)
 - ActiveAdmin 4.0.0.beta13+
 - PostgreSQL for production migrations (`jsonb` columns and concurrent index helpers)
 
@@ -110,6 +110,18 @@ make test
 ```
 
 See `spec/README.md` for focused runs and coverage notes.
+
+## Links
+
+- [GitHub](https://github.com/amkisko/activeadmin_favorites.rb)
+- [GitLab](https://gitlab.com/amkisko/activeadmin_favorites.rb)
+- [RubyGems](https://rubygems.org/gems/activeadmin_favorites)
+- [libraries.io](https://libraries.io/rubygems/activeadmin_favorites)
+- [Deps.dev](https://deps.dev/rubygems/activeadmin_favorites)
+- [SonarCloud](https://sonarcloud.io/project/overview?id=amkisko_activeadmin_favorites.rb)
+- [Snyk](https://snyk.io/test/github/amkisko/activeadmin_favorites.rb)
+- [Codecov](https://app.codecov.io/github/amkisko/activeadmin_favorites.rb)
+- [OpenSSF Scorecard](https://scorecard.dev/viewer/?uri=github.com/amkisko/activeadmin_favorites.rb)
 
 ## License
 
