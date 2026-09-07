@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 0.1.1 (2026-09-07)
 
 - Keep favorites registration working after ActiveAdmin reload when a custom page is already registered.
 - Keep JSON and CSV collection downloads working on ActiveAdmin resources that only expose the index action.

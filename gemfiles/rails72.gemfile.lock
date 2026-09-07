@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    activeadmin_favorites (0.1.0)
+    activeadmin_favorites (0.1.1)
       activeadmin (>= 4.0.0.beta13, < 5)
       importmap-rails
       rails (>= 7.2)
