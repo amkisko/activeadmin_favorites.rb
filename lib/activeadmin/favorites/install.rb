@@ -17,7 +17,7 @@ module ActiveAdmin
 
       def configure_favorites_resource!
         resource = ActiveAdmin.application.namespace(ActiveAdmin::Favorites.config.namespace_name)
-          .resources.find { |config| config.resource_class == Favorite }
+          .resources.find { |config| config.is_a?(ActiveAdmin::Resource) && config.resource_class == Favorite }
         return unless resource
 
         resource.instance_variable_set(:@batch_actions, {}) if resource.instance_variable_get(:@batch_actions).nil?

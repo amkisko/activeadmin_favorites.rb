@@ -2,7 +2,9 @@
 
 ## Unreleased
 
-- CI: run Rails 7.2 appraisal on Ruby 3.4; refresh lockfiles for current advisories (`loofah` 2.25.2, `rails-html-sanitizer` 1.7.1) and development gems (`rbs` ~> 4).
+- Keep favorites registration working after ActiveAdmin reload when a custom page is already registered.
+- Keep JSON and CSV collection downloads working on ActiveAdmin resources that only expose the index action.
+- CI: run Rails 7.2 appraisal on Ruby 3.4; refresh lockfiles for current advisories (`loofah` 2.25.2, `rails-html-sanitizer` 1.7.1, `json` 2.21.2, `sqlite3` 2.9.6) and development gems (`rbs` ~> 4).
 
 ## 0.1.0 (2026-07-13)
 

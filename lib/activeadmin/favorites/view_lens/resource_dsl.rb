@@ -7,8 +7,8 @@ module ActiveAdmin
         extend ActiveSupport::Concern
 
         included do
-          before_action :apply_active_admin_favorites_lens, only: [:index, :show]
-          after_action :clear_active_admin_favorites_lens, only: [:index, :show]
+          before_action :apply_active_admin_favorites_lens, if: -> { %w[index show].include?(action_name) }
+          after_action :clear_active_admin_favorites_lens, if: -> { %w[index show].include?(action_name) }
 
           helper_method :active_admin_favorites_catalog, :active_admin_favorites_layout
         end

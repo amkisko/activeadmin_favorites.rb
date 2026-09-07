@@ -265,7 +265,7 @@ module ActiveAdmin
 
       def resource_registered?
         ActiveAdmin.application.namespace(ActiveAdmin::Favorites.config.namespace_name)
-          .resources.any? { |resource| resource.resource_class == Favorite }
+          .resources.any? { |resource| resource.is_a?(ActiveAdmin::Resource) && resource.resource_class == Favorite }
       end
     end
   end
