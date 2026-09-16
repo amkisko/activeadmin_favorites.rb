@@ -46,4 +46,4 @@ Thumbs.db
 *.gem
 /pkg/
 
-.pray/cache
+.pray
