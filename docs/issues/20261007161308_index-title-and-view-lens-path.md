@@ -8,7 +8,7 @@ Index heading no longer depends on a host locale override for title. Preferences
 
 ## Next
 
-Release as 0.1.2.
+Publish 0.1.2 via make release. See docs/changelogs/20261007162649_release-0-1-2.md.
 
 ## Source
 

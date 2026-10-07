@@ -8,7 +8,7 @@ active_admin.favorites.title is Favorites in the English gem locale. The prefere
 
 ## Next
 
-Publish 0.1.2. Hosts that overrode the old camel-case path helpers should switch to the underscored helpers after upgrade.
+Publish 0.1.2 via make release after the release note and appraisal locks land. Hosts that overrode the old camel-case path helpers should switch to the underscored helpers after upgrade.
 
 ## Source
 
