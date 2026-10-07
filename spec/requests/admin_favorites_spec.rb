@@ -13,6 +13,16 @@ RSpec.describe "Admin favorites", type: :request do
     expect(response.body).to include("Articles scope")
   end
 
+  it "renders the index title from the gem locale" do
+    create(:filters_favorite, name: "Named favorite")
+
+    get admin_favorites_path
+
+    expect(response).to have_http_status(:ok)
+    expect(response.body).not_to include("Translation missing")
+    expect(response.body).to include(I18n.t("active_admin.favorites.title"))
+  end
+
   it "ignores an invalid kind tab parameter" do
     create(:filters_favorite, name: "Visible favorite")
 

@@ -8,6 +8,8 @@ en:
     favorites:
       add_to_favorites: Add to favorites
       personalize_page: Personalize page
+      menu: Favorites
+      title: Favorites
       hub_title: Favorites
       filters_tab: Filters
       lens_tab: Layout

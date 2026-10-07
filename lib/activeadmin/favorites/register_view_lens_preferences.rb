@@ -3,7 +3,9 @@
 module ActiveAdmin
   module Favorites
     module RegisterViewLensPreferences
-      PAGE_NAME = "ViewLensPreferences"
+      # Spaced name so ActiveAdmin parameterize.underscore yields view_lens_preferences.
+      # options[:as] does not change Page routes in ActiveAdmin 4.
+      PAGE_NAME = "View Lens Preferences"
 
       module_function
 
@@ -24,7 +26,7 @@ module ActiveAdmin
       def call
         return if page_registered?
 
-        ActiveAdmin.register_page PAGE_NAME, as: "view_lens_preferences" do
+        ActiveAdmin.register_page PAGE_NAME do
           menu false
 
           controller do

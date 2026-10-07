@@ -7,10 +7,18 @@ RSpec.describe "View lens preferences page actions", type: :request do
 
   before { sign_in(user) }
 
+  it "mounts page actions under an underscored path" do
+    expect(admin_view_lens_preferences_update_path).to eq("/admin/view_lens_preferences/update")
+    expect(admin_view_lens_preferences_reset_path).to eq("/admin/view_lens_preferences/reset")
+    expect(admin_view_lens_preferences_save_lens_favorite_path).to eq(
+      "/admin/view_lens_preferences/save_lens_favorite"
+    )
+  end
+
   it "updates the user's default layout" do
     layout = {"hidden" => {"columns" => ["status"]}}
 
-    patch admin_viewlenspreferences_update_path, params: {
+    patch admin_view_lens_preferences_update_path, params: {
       resource_key: "articles",
       view_lens_action: "index",
       layout: layout.to_json
@@ -29,7 +37,7 @@ RSpec.describe "View lens preferences page actions", type: :request do
       layout: {"hidden" => {"columns" => ["status"]}}
     )
 
-    delete admin_viewlenspreferences_reset_path, params: {
+    delete admin_view_lens_preferences_reset_path, params: {
       resource_key: "articles",
       view_lens_action: "index"
     }
@@ -41,7 +49,7 @@ RSpec.describe "View lens preferences page actions", type: :request do
   end
 
   it "creates a lens favorite from the personalization flow" do
-    post admin_viewlenspreferences_save_lens_favorite_path, params: {
+    post admin_view_lens_preferences_save_lens_favorite_path, params: {
       name: "Articles layout",
       resource_key: "articles",
       path: "/admin/articles",

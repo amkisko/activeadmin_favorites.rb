@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.1.2 (2026-10-07)
+
+- Show Favorites as the favorites index heading from the gem locale.
+- Mount view lens preference actions at `/admin/view_lens_preferences`.
+
 ## 0.1.1 (2026-09-07)
 
 - Keep favorites registration working after ActiveAdmin reload when a custom page is already registered.

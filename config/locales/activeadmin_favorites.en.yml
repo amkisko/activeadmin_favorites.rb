@@ -13,6 +13,7 @@ en:
       macros_json_invalid: Macros JSON is invalid
       macros_panel: Dynamic filters
       menu: Favorites
+      title: Favorites
       no_detected_ranges: No date range filters detected in the current view. Use advanced macros if needed.
       open: Open
       published: Published for everyone
