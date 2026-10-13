@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.3 (2026-10-13)
+
+- Fix favorites index kind tabs so they render as links instead of raw kind list text.
+
 ## 0.1.2 (2026-10-07)
 
 - Show Favorites as the favorites index heading from the gem locale.

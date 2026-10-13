@@ -23,6 +23,24 @@ RSpec.describe "Admin favorites", type: :request do
     expect(response.body).to include(I18n.t("active_admin.favorites.title"))
   end
 
+  it "renders kind tabs as links without dumping Favorite::KINDS as text", :aggregate_failures do
+    create(:filters_favorite, name: "Named favorite")
+
+    get admin_favorites_path
+
+    expect(response).to have_http_status(:ok)
+    expect(response.body).not_to include(
+      ERB::Util.html_escape(ActiveAdmin::Favorites::Favorite::KINDS.inspect)
+    )
+    expect(response.body).to include(%(aria-label="#{I18n.t("active_admin.favorites.kind_navigation")}"))
+    expect(response.body).to include(%(href="#{admin_favorites_path}"))
+    expect(response.body).to include(%(href="#{admin_favorites_path(kind: "filters")}"))
+    expect(response.body).to include(%(href="#{admin_favorites_path(kind: "lens")}"))
+    expect(response.body).to include(%(href="#{admin_favorites_path(kind: "combined")}"))
+    expect(response.body).to include(I18n.t("active_admin.favorites.kinds.all"))
+    expect(response.body).to include(I18n.t("active_admin.favorites.kinds.filters"))
+  end
+
   it "ignores an invalid kind tab parameter" do
     create(:filters_favorite, name: "Visible favorite")
 

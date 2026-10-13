@@ -186,12 +186,12 @@ module ActiveAdmin
 
           index title: proc { I18n.t("active_admin.favorites.title") } do
             nav class: "flex flex-wrap gap-3 mb-4", "aria-label": I18n.t("active_admin.favorites.kind_navigation") do
-              link_to I18n.t("active_admin.favorites.kinds.all"),
-                admin_favorites_path,
+              a I18n.t("active_admin.favorites.kinds.all"),
+                href: admin_favorites_path,
                 class: favorites_kind_tab_active?(nil) ? "font-semibold underline" : "text-gray-600 dark:text-gray-300"
               Favorite::KINDS.each do |kind|
-                link_to I18n.t("active_admin.favorites.kinds.#{kind}"),
-                  admin_favorites_path(kind: kind),
+                a I18n.t("active_admin.favorites.kinds.#{kind}"),
+                  href: admin_favorites_path(kind: kind),
                   class: favorites_kind_tab_active?(kind) ? "font-semibold underline" : "text-gray-600 dark:text-gray-300"
               end
             end

@@ -2,6 +2,6 @@
 
 module ActiveAdmin
   module Favorites
-    VERSION = "0.1.2"
+    VERSION = "0.1.3"
   end
 end
