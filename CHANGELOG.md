@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.4 (2026-10-26)
+
+- Fix column and panel personalization so the lens catalog on index and show pages parses in the browser.
+
 ## 0.1.3 (2026-10-13)
 
 - Fix favorites index kind tabs so they render as links instead of raw kind list text.

@@ -16,6 +16,7 @@ module ActiveAdmin
         require "activeadmin/favorites/view_lens/catalog"
         require "activeadmin/favorites/view_lens/patches"
         require "activeadmin/favorites/view_lens/resource_dsl"
+        require "activeadmin/favorites/view_paths"
         require "activeadmin/favorites/install"
         require "activeadmin/favorites/register_favorites"
         require "activeadmin/favorites/register_view_lens_preferences"
@@ -62,7 +63,13 @@ module ActiveAdmin
         end
       end
 
+      config.after_initialize do
+        ActiveAdmin::Favorites::ViewPaths.install!
+      end
+
       config.to_prepare do
+        ActiveAdmin::Favorites::ViewPaths.install!
+
         next unless defined?(ActiveAdmin::ResourceController)
 
         ActiveAdmin::Favorites::Favorite.define_favorites_user_association!
