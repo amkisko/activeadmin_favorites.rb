@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.1.5 (2026-10-26)
+
+- Keep personalization menu actions in view while a long catalog scrolls.
+- Add `activeadmin_favorites/personalization_menu.css` for hosts to import into the ActiveAdmin stylesheet.
+
 ## 0.1.4 (2026-10-26)
 
 - Fix column and panel personalization so the lens catalog on index and show pages parses in the browser.

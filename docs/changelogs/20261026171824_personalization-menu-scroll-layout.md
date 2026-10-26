@@ -8,7 +8,7 @@ Personalize page menu keeps Save, Reset, and Save lens actions in view while lon
 
 ## Next
 
-Publish a patch after CI. Document stylesheet import stays in README.
+Publish 0.1.5 via make release. See docs/changelogs/20261026172252_release-0-1-5.md.
 
 ## Source
 
