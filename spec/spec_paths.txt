@@ -11,5 +11,6 @@ spec/models/favorite_spec.rb
 spec/requests/admin_favorites_spec.rb
 spec/requests/index_only_resource_formats_spec.rb
 spec/requests/lens_catalog_data_spec.rb
+spec/requests/personalization_menu_spec.rb
 spec/requests/view_lens_preferences_spec.rb
 spec/views/active_admin/favorites/lens_catalog_data_spec.rb

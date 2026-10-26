@@ -29,6 +29,7 @@ module ActiveAdmin
         next unless app.config.respond_to?(:assets)
 
         app.config.assets.precompile << "activeadmin_favorites/personalization_controller.js"
+        app.config.assets.precompile << "activeadmin_favorites/personalization_menu.css"
       end
 
       initializer "activeadmin_favorites.importmap", after: :importmap do

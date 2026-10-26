@@ -58,7 +58,8 @@ export default class extends Controller {
 
     const groups = Object.keys(grouped)
     if (groups.length === 0) {
-      this.catalogGroupsTarget.innerHTML = `<p class="text-sm text-gray-600 dark:text-gray-300">${this.escapeHtml(this.emptyCatalogLabelValue)}</p>`
+      this.catalogGroupsTarget.innerHTML =
+        `<p class="favorites-personalization-menu__empty">${this.escapeHtml(this.emptyCatalogLabelValue)}</p>`
       return
     }
 
@@ -70,11 +71,11 @@ export default class extends Controller {
         const entryId = this.escapeHtml(entry.id)
         return `
           <li>
-            <label class="inline-flex items-center gap-2 text-sm">
+            <label class="favorites-personalization-menu__item">
               <input
                 type="checkbox"
                 checked
-                class="rounded border-gray-300 dark:border-white/20"
+                class="favorites-personalization-menu__checkbox"
                 data-group="${entryGroup}"
                 data-entry-id="${entryId}"
                 data-${this.identifier}-target="visibilityCheckbox"
@@ -86,9 +87,9 @@ export default class extends Controller {
       }).join("")
 
       return `
-        <div class="mb-4">
-          <h4 class="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">${label}</h4>
-          <ul class="space-y-2 max-h-40 overflow-y-auto">${items}</ul>
+        <div class="favorites-personalization-menu__group">
+          <h4 class="favorites-personalization-menu__group-title">${label}</h4>
+          <ul class="favorites-personalization-menu__list">${items}</ul>
         </div>
       `
     }).join("")

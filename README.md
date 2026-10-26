@@ -59,6 +59,14 @@ end
 
 When using ActionPolicy, add `save_lens_favorite?` and `reset?` to `ActiveAdmin::PagePolicy` (or equivalent) so the view lens preference page actions authorize correctly.
 
+### Stylesheet
+
+Import the personalization menu stylesheet into the ActiveAdmin CSS entrypoint so the cogwheel dropdown can scroll the catalog while keeping action buttons in view:
+
+```css
+@import "activeadmin_favorites/personalization_menu.css";
+```
+
 ### Locales
 
 English ships with the gem. Copy `config/locales/activeadmin_favorites.host.yml.example` into your locale files and translate `active_admin.favorites` keys.

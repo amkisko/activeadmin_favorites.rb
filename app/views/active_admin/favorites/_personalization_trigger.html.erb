@@ -4,6 +4,7 @@
   resource_key = active_admin_config.resource_name.route_key
   hidden = layout.layout.fetch("hidden", {})
   catalog_element_id = "favorites-lens-catalog-#{resource_key}-#{action_name}"
+  menu_id = "personalization-menu-#{resource_key}-#{action_name}"
 %>
 <div
   class="relative"
@@ -30,7 +31,7 @@
     type="button"
     class="action-item-button inline-flex items-center gap-2"
     aria-label="<%= t("active_admin.favorites.personalize_page") %>"
-    data-dropdown-toggle="personalization-menu-<%= resource_key %>-<%= action_name %>"
+    data-dropdown-toggle="<%= menu_id %>"
     data-dropdown-offset-distance="3"
     data-dropdown-placement="bottom-end"
     data-action="click-><%= stimulus_controller %>#prepareMenu"
@@ -43,27 +44,50 @@
   </button>
 
   <div
-    id="personalization-menu-<%= resource_key %>-<%= action_name %>"
-    class="z-50 hidden w-80 max-w-[calc(100vw-2rem)] rounded-md bg-white p-4 shadow-lg ring-1 ring-black/5 dark:bg-gray-800 dark:ring-white/10"
+    id="<%= menu_id %>"
+    class="favorites-personalization-menu z-50 hidden w-72 max-w-[calc(100vw-2rem)] overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black/5 dark:bg-gray-800 dark:ring-white/10"
     role="region"
     aria-label="<%= t("active_admin.favorites.personalization_region") %>"
     data-<%= stimulus_controller %>-target="menu"
   >
-    <h3 class="text-sm font-semibold mb-3"><%= t("active_admin.favorites.personalization_region") %></h3>
+    <div class="favorites-personalization-menu__body">
+      <h3 class="favorites-personalization-menu__title">
+        <%= t("active_admin.favorites.personalization_region") %>
+      </h3>
 
-    <div data-<%= stimulus_controller %>-target="catalogGroups"></div>
+      <div
+        class="favorites-personalization-menu__catalog"
+        data-<%= stimulus_controller %>-target="catalogGroups"
+      ></div>
 
-    <div class="flex flex-col gap-2 border-t border-gray-200 pt-3 dark:border-white/10">
-      <button type="button" class="action-item-button w-full" data-action="<%= stimulus_controller %>#saveDefault">
-        <%= t("active_admin.favorites.save_default") %>
-      </button>
-      <button type="button" class="action-item-button w-full" data-action="<%= stimulus_controller %>#resetDefault">
-        <%= t("active_admin.favorites.reset_default") %>
-      </button>
-      <button type="button" class="action-item-button w-full" data-action="<%= stimulus_controller %>#saveLensFavorite">
-        <%= t("active_admin.favorites.save_lens_favorite") %>
-      </button>
-      <%= link_to t("active_admin.favorites.menu"), admin_favorites_path, class: "text-sm text-center no-underline hover:underline" %>
+      <div class="favorites-personalization-menu__actions">
+        <button
+          type="button"
+          class="favorites-personalization-menu__action"
+          data-action="<%= stimulus_controller %>#saveDefault"
+        >
+          <%= t("active_admin.favorites.save_default") %>
+        </button>
+        <button
+          type="button"
+          class="favorites-personalization-menu__action"
+          data-action="<%= stimulus_controller %>#resetDefault"
+        >
+          <%= t("active_admin.favorites.reset_default") %>
+        </button>
+        <button
+          type="button"
+          class="favorites-personalization-menu__action favorites-personalization-menu__action--wide"
+          data-action="<%= stimulus_controller %>#saveLensFavorite"
+        >
+          <%= t("active_admin.favorites.save_lens_favorite") %>
+        </button>
+        <%=
+          link_to t("active_admin.favorites.menu"),
+            admin_favorites_path,
+            class: "favorites-personalization-menu__link"
+        %>
+      </div>
     </div>
   </div>
 </div>
