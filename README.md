@@ -61,10 +61,18 @@ When using ActionPolicy, add `save_lens_favorite?` and `reset?` to `ActiveAdmin:
 
 ### Stylesheet
 
-Import the personalization menu stylesheet into the ActiveAdmin CSS entrypoint so the cogwheel dropdown can scroll the catalog while keeping action buttons in view:
+The engine links `activeadmin_favorites/personalization_menu` from Active Admin's HTML head so the cogwheel dropdown can scroll the catalog while keeping action buttons in view. The file is plain CSS served through Propshaft; it does not need Tailwind processing.
 
-```css
-@import "activeadmin_favorites/personalization_menu.css";
+If the host overrides `active_admin/_html_head`, add the link there:
+
+```erb
+<%= stylesheet_link_tag "activeadmin_favorites/personalization_menu" %>
+```
+
+Do not bare-`@import` that Propshaft logical path into an Active Admin CSS entry that Tailwind CLI compiles from a generated `tmp` file. Tailwind resolves imports from the input file directory, not through Propshaft. Hosts that must fold the rules into one built stylesheet can concatenate the absolute file instead:
+
+```ruby
+File.read(ActiveAdmin::Favorites.personalization_menu_stylesheet_path)
 ```
 
 ### Locales

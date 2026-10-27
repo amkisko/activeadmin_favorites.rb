@@ -1,5 +1,8 @@
 module ActiveAdmin
   module Favorites
     VERSION: String
+    PERSONALIZATION_MENU_STYLESHEET: String
+
+    def self.personalization_menu_stylesheet_path: () -> Pathname
   end
 end

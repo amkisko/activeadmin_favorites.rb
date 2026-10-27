@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased
+
+- Link the personalization menu stylesheet from Active Admin's HTML head so hosts no longer need a Tailwind `@import` of the Propshaft path.
+- Document `ActiveAdmin::Favorites.personalization_menu_stylesheet_path` for hosts that concatenate the plain CSS into a Tailwind CLI entry.
+
 ## 0.1.5 (2026-10-26)
 
 - Keep personalization menu actions in view while a long catalog scrolls.

@@ -4,6 +4,7 @@ spec/activeadmin/favorites/view_lens/layout_spec.rb
 spec/lib/activeadmin/favorites/migration_helpers_spec.rb
 spec/lib/activeadmin/favorites/migration_support_spec.rb
 spec/lib/activeadmin/favorites/page_safe_registration_spec.rb
+spec/lib/activeadmin/favorites/stylesheet_path_spec.rb
 spec/lib/activeadmin/favorites/view_paths_spec.rb
 spec/models/favorite/macro_builder_spec.rb
 spec/models/favorite/macro_resolver_spec.rb

@@ -12,4 +12,11 @@ RSpec.describe "Personalization menu markup", type: :request do
     expect(response.body).to include("favorites-personalization-menu__action--wide")
     expect(response.body).to include(%(data-dropdown-toggle="personalization-menu-articles-index"))
   end
+
+  it "links the personalization menu stylesheet from the admin head" do
+    get admin_articles_path
+
+    expect(response).to have_http_status(:ok)
+    expect(response.body).to include("activeadmin_favorites/personalization_menu")
+  end
 end
