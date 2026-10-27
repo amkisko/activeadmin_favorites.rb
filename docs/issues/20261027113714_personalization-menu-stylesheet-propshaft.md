@@ -15,8 +15,8 @@ Andrei Makarov (@amkisko)
 
 ## Next
 
-- Review and merge.
-- Cut a patch release so hosts can drop manual head workarounds.
+- Commit and push the 0.1.6 release prep on main.
+- Run `make release` from a clean tree when ready to publish to RubyGems.
 
 ## Source
 

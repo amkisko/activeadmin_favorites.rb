@@ -19,7 +19,7 @@ Andrei Makarov (@amkisko)
 
 ## Next
 
-- Ship in the next gem release after review.
+- Publish 0.1.6 via `make release`. See docs/changelogs/20261027114820_release-0-1-6.md.
 - Hosts that already load the sheet with `stylesheet_link_tag` can drop duplicate tags once they upgrade.
 
 ## Source
