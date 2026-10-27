@@ -1,3 +1,7 @@
+## Participants
+
+Andrei Makarov (@amkisko)
+
 ## Decisions
 
 Add active_admin.favorites.title in the gem locale. Change the view lens preferences page registration name so parameterize.underscore yields view_lens_preferences. Do not rely on register_page as: for path shape.

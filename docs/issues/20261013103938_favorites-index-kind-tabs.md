@@ -1,3 +1,7 @@
+## Participants
+
+Andrei Makarov (@amkisko)
+
 ## Decisions
 
 Replace `link_to` inside the favorites index Arbre nav with `a`/`href` so kind tabs render as links.

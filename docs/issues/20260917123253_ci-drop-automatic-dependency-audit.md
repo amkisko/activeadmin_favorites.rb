@@ -2,7 +2,7 @@ Test CI ran bundler-audit on every matrix gemfile. Quality was not the blocker.
 
 ## Participants
 
-- amkisko
+Andrei Makarov (@amkisko)
 
 ## Decisions
 

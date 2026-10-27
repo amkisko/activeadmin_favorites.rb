@@ -2,7 +2,7 @@ Recorded 2026-09-07. Library gem for ActiveAdmin 4 favorites. Pipeline is authen
 
 ## Participants
 
-- amkisko
+Andrei Makarov (@amkisko)
 
 ## Decisions
 

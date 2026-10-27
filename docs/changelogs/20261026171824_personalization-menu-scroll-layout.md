@@ -1,3 +1,7 @@
+## Participants
+
+Andrei Makarov (@amkisko)
+
 ## Decisions
 
 Ship the compact personalization dropdown markup with a scrollable catalog region and pinned action buttons. Match Stimulus catalog markup to the same BEM classes. Publish `activeadmin_favorites/personalization_menu.css` for hosts to import into the ActiveAdmin stylesheet entrypoint.

@@ -1,3 +1,7 @@
+## Participants
+
+Andrei Makarov (@amkisko)
+
 ## Decisions
 
 Render favorites index kind navigation with Arbre `a` tags and an explicit `href`. Do not call `link_to` inside the ActiveAdmin/Arbre index block; that returned an array of HTML strings and printed Favorite::KINDS as page text.

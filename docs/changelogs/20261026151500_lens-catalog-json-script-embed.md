@@ -1,3 +1,7 @@
+## Participants
+
+Andrei Makarov (@amkisko)
+
 ## Decisions
 
 Embed lens catalog JSON with `raw json_escape(catalog_payload.to_json)` inside the `application/json` script tag so `JSON.parse(element.textContent)` receives real JSON. Reorder engine view paths so this gem's resource index/show templates override ActiveAdmin's and still inject the catalog after the table render, while host `app/views` stays first.

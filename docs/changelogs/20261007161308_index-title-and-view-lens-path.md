@@ -1,3 +1,7 @@
+## Participants
+
+Andrei Makarov (@amkisko)
+
 ## Decisions
 
 Ship gem locale title for the favorites index. Register the view lens preferences page under a spaced human name so ActiveAdmin builds an underscored path.
