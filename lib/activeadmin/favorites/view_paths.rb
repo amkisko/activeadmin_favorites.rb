@@ -2,15 +2,17 @@
 
 module ActiveAdmin
   module Favorites
-    # Place this engine's views ahead of ActiveAdmin's so resource index/show
-    # overrides (catalog injection) win, while the host app/views path stays first.
+    # Place this engine's views immediately before ActiveAdmin's so resource
+    # index/show overrides (catalog injection) win. Rails engines prepend their
+    # view paths, so favorites can otherwise sit ahead of the host app/views and
+    # shadow customized templates such as active_admin/_html_head.
     module ViewPaths
       module_function
 
       def prefer_over_active_admin!(view_paths)
         path_strings = view_paths.to_a.map { |path| path.to_s }
         reordered = reorder_path_strings(path_strings)
-        return view_paths if reordered.equal?(path_strings)
+        return view_paths if reordered == path_strings
 
         ActionView::PathSet.new(reordered)
       end
@@ -34,7 +36,7 @@ module ActiveAdmin
 
         favorites_index = path_strings.index(favorites_root)
         active_admin_index = path_strings.index(active_admin_root)
-        return path_strings if favorites_index < active_admin_index
+        return path_strings if favorites_index == active_admin_index - 1
 
         moved = path_strings.dup
         moved.delete_at(favorites_index)

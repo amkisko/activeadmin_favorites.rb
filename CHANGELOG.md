@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Unreleased
+
+- Place engine views immediately before ActiveAdmin's view path so host `app/views` stays ahead of favorites. Rails engines prepend view paths; the previous reorder left favorites first whenever it was already ahead of ActiveAdmin, which made the gem `_html_head` shadow host heads that use a custom Active Admin stylesheet name.
+
 ## 0.1.6 (2026-10-27)
 
 - Link the personalization menu stylesheet from Active Admin's HTML head so hosts no longer need a Tailwind `@import` of the Propshaft path.
