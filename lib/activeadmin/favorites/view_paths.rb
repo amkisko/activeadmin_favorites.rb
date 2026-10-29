@@ -4,8 +4,7 @@ module ActiveAdmin
   module Favorites
     # Place this engine's views immediately before ActiveAdmin's so resource
     # index/show overrides (catalog injection) win. Rails engines prepend their
-    # view paths, so favorites can otherwise sit ahead of the host app/views and
-    # shadow customized templates such as active_admin/_html_head.
+    # view paths, so favorites can otherwise sit ahead of the host app/views.
     module ViewPaths
       module_function
 
@@ -35,7 +34,16 @@ module ActiveAdmin
       end
 
       def active_admin_views_root(path_strings)
-        path_strings.find { |path| path.match?(%r{/gems/activeadmin-[^/]+/app/views\z}) }
+        engine_root = active_admin_engine_views_root
+        return engine_root if engine_root && path_strings.include?(engine_root)
+
+        path_strings.find { |path| path.match?(ACTIVE_ADMIN_GEM_VIEWS) }
+      end
+
+      def active_admin_engine_views_root
+        return unless defined?(::ActiveAdmin::Engine)
+
+        ::ActiveAdmin::Engine.root.join("app/views").to_s
       end
 
       def already_before_active_admin?(path_strings, favorites_root, active_admin_root)
@@ -49,10 +57,16 @@ module ActiveAdmin
         moved
       end
 
+      # Versioned Active Admin gem only (`activeadmin-4...`), not siblings such as
+      # `activeadmin-command_palette-...`.
+      ACTIVE_ADMIN_GEM_VIEWS = %r{/gems/activeadmin-\d[^/]*/app/views\z}
+
       module_function :reorder_path_strings, :active_admin_views_root,
-        :already_before_active_admin?, :place_before_active_admin
+        :active_admin_engine_views_root, :already_before_active_admin?,
+        :place_before_active_admin
       private_class_method :reorder_path_strings, :active_admin_views_root,
-        :already_before_active_admin?, :place_before_active_admin
+        :active_admin_engine_views_root, :already_before_active_admin?,
+        :place_before_active_admin
     end
   end
 end

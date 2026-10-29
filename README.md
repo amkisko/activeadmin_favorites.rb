@@ -61,9 +61,7 @@ When using ActionPolicy, add `save_lens_favorite?` and `reset?` to `ActiveAdmin:
 
 ### Stylesheet
 
-The engine ships an `active_admin/_html_head` that links `activeadmin_favorites/personalization_menu` so the cogwheel dropdown can scroll the catalog while keeping action buttons in view. The file is plain CSS served through Propshaft; it does not need Tailwind processing. Engine view paths sit immediately before ActiveAdmin's, so a host `app/views/active_admin/_html_head` still wins.
-
-If the host overrides that partial, add the link there:
+Link `activeadmin_favorites/personalization_menu` from the host Active Admin HTML head so the cogwheel dropdown can scroll the catalog while keeping action buttons in view. The file is plain CSS served through Propshaft; it does not need Tailwind processing. The gem does not ship `active_admin/_html_head`, so customized host heads keep their stylesheet names and extra tags.
 
 ```erb
 <%= stylesheet_link_tag "activeadmin_favorites/personalization_menu" %>

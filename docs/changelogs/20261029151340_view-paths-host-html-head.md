@@ -8,18 +8,17 @@ Andrei Makarov (@amkisko)
 
 - Reorder favorites views to sit immediately before ActiveAdmin's path, not merely somewhere ahead of it.
 - Treat Rails engine `prepend_view_path` as the reason favorites can land before host `app/views` after boot.
-- Keep the engine `_html_head` for hosts that do not override it; host overrides must continue to win.
+- Keep host overrides ahead of favorites for shared Active Admin templates.
 
 ## Effects
 
-- Hosts that override `active_admin/_html_head` with a custom stylesheet name keep their partial; the gem head that calls `stylesheet_link_tag "active_admin"` no longer wins via prepended engine paths.
-- Specs cover a prepended favorites path that starts before the host and ends immediately before ActiveAdmin.
+- Specs cover a prepended favorites path that ends immediately before ActiveAdmin.
+- Superseded for `_html_head` by 0.1.8: sibling `activeadmin-*` detection fix and removal of the gem head template. See docs/changelogs/20261029153215_html-head-and-activeadmin-path-detection.md.
 
 ## Next
 
-- Shipped as 0.1.7. See docs/changelogs/20261029151805_release-0-1-7.md.
+- None for this note. Later path and head work is in 0.1.8.
 
 ## Source
 
 - lib/activeadmin/favorites/view_paths.rb
-- app/views/active_admin/_html_head.html.erb

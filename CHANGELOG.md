@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.1.8 (2026-10-29)
+
+- Fix Active Admin view-path detection so sibling gems such as `activeadmin-command_palette` are not treated as Active Admin. Prefer `ActiveAdmin::Engine.root`, with a fallback that requires a digit version segment after `activeadmin-`.
+- Remove the gem `active_admin/_html_head` override. Hosts must link `activeadmin_favorites/personalization_menu` from their own Active Admin head.
+
 ## 0.1.7 (2026-10-29)
 
 - Fix engine view path order so favorites sits immediately before ActiveAdmin and host `app/views` stays ahead of the gem `_html_head`. Rails engines prepend view paths; the previous reorder left favorites first whenever it was already ahead of ActiveAdmin.
