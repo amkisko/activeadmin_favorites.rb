@@ -20,4 +20,3 @@ RSpec.describe "Personalization menu markup", type: :request do
     expect(response.body).to include("activeadmin_favorites/personalization_menu")
   end
 end
-
