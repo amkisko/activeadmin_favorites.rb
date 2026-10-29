@@ -1,8 +1,8 @@
 # CHANGELOG
 
-## Unreleased
+## 0.1.7 (2026-10-29)
 
-- Place engine views immediately before ActiveAdmin's view path so host `app/views` stays ahead of favorites. Rails engines prepend view paths; the previous reorder left favorites first whenever it was already ahead of ActiveAdmin, which made the gem `_html_head` shadow host heads that use a custom Active Admin stylesheet name.
+- Fix engine view path order so favorites sits immediately before ActiveAdmin and host `app/views` stays ahead of the gem `_html_head`. Rails engines prepend view paths; the previous reorder left favorites first whenever it was already ahead of ActiveAdmin.
 
 ## 0.1.6 (2026-10-27)
 

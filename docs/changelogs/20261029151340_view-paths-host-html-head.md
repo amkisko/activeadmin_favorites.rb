@@ -17,7 +17,7 @@ Andrei Makarov (@amkisko)
 
 ## Next
 
-- Cut a patch release after CI on the supported appraisal matrix.
+- Shipped as 0.1.7. See docs/changelogs/20261029151805_release-0-1-7.md.
 
 ## Source
 
