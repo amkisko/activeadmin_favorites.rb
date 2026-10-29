@@ -27,24 +27,32 @@ module ActiveAdmin
 
       def reorder_path_strings(path_strings)
         favorites_root = Engine.root.join("app/views").to_s
-        return path_strings unless path_strings.include?(favorites_root)
+        active_admin_root = active_admin_views_root(path_strings)
+        return path_strings unless path_strings.include?(favorites_root) && active_admin_root
+        return path_strings if already_before_active_admin?(path_strings, favorites_root, active_admin_root)
 
-        active_admin_root = path_strings.find do |path|
-          path.match?(%r{/gems/activeadmin-[^/]+/app/views\z})
-        end
-        return path_strings unless active_admin_root
+        place_before_active_admin(path_strings, favorites_root, active_admin_root)
+      end
 
-        favorites_index = path_strings.index(favorites_root)
-        active_admin_index = path_strings.index(active_admin_root)
-        return path_strings if favorites_index == active_admin_index - 1
+      def active_admin_views_root(path_strings)
+        path_strings.find { |path| path.match?(%r{/gems/activeadmin-[^/]+/app/views\z}) }
+      end
 
+      def already_before_active_admin?(path_strings, favorites_root, active_admin_root)
+        path_strings.index(favorites_root) == path_strings.index(active_admin_root) - 1
+      end
+
+      def place_before_active_admin(path_strings, favorites_root, active_admin_root)
         moved = path_strings.dup
-        moved.delete_at(favorites_index)
+        moved.delete(favorites_root)
         moved.insert(moved.index(active_admin_root), favorites_root)
         moved
       end
-      module_function :reorder_path_strings
-      private_class_method :reorder_path_strings
+
+      module_function :reorder_path_strings, :active_admin_views_root,
+        :already_before_active_admin?, :place_before_active_admin
+      private_class_method :reorder_path_strings, :active_admin_views_root,
+        :already_before_active_admin?, :place_before_active_admin
     end
   end
 end
