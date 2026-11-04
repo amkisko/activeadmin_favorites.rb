@@ -11,7 +11,9 @@ spec/models/favorite/macro_resolver_spec.rb
 spec/models/favorite_spec.rb
 spec/release_spec.rb
 spec/requests/admin_favorites_spec.rb
+spec/requests/favorite_form_ux_spec.rb
 spec/requests/filter_favorite_button_spec.rb
+spec/requests/filter_favorite_quick_create_spec.rb
 spec/requests/index_only_resource_formats_spec.rb
 spec/requests/lens_catalog_data_spec.rb
 spec/requests/personalization_menu_spec.rb

@@ -96,7 +96,16 @@ module ActiveAdmin
           end
 
           render partial: "active_admin/favorites/filter_favorite_button",
-            locals: {label: label, destination: destination, favorited: favorited}
+            locals: {
+              label: label,
+              destination: destination,
+              favorited: favorited,
+              quick_create_url: quick_create_admin_favorites_path,
+              path: request.path,
+              query_string: sanitized_query,
+              resource_key: active_admin_config.resource_name.route_key,
+              action_name: "index"
+            }
         end
       end
 

@@ -19,6 +19,36 @@ module ActiveAdmin
           permit_params :name, :note, :path, :query_string, :resource_key, :published, :macros_json,
             :use_advanced_macros, :kind, :type, :action, :include_layout, layout: {}
 
+          collection_action :quick_create, method: :post do
+            user = current_favorites_user
+            path = params.require(:path)
+            query_string = Favorite.sanitize_query_string(params[:query_string])
+            resource_key = params.require(:resource_key)
+            action_name = params[:action_name].presence || "index"
+            return_to = query_string.present? ? "#{path}?#{query_string}" : path
+
+            bookmark = FiltersFavorite.new(
+              name: Favorite.suggested_name(
+                resource_key: resource_key,
+                query_string: query_string,
+                kind: "filters"
+              ),
+              path: path,
+              query_string: query_string,
+              resource_key: resource_key,
+              action: action_name,
+              published: false
+            )
+            bookmark.public_send(:"#{ActiveAdmin::Favorites.config.user_foreign_key}=", user.id)
+            authorize! ActiveAdmin::Auth::CREATE, bookmark
+
+            if bookmark.save
+              redirect_to return_to, notice: I18n.t("active_admin.favorites.created")
+            else
+              redirect_to return_to, alert: bookmark.errors.full_messages.to_sentence
+            end
+          end
+
           controller do
             helper_method :current_favorites_user, :favorites_kind_tab_active?
 
@@ -37,7 +67,8 @@ module ActiveAdmin
               get_resource_ivar || begin
                 kind = params.dig(:favorite, :kind).presence || params[:kind].presence || "filters"
                 record = Favorite.sti_class_for_kind(kind).new
-                record = assign_attributes(record, resource_params)
+                assign_new_favorite_defaults(record)
+                record = assign_attributes(record, resource_params) if params[:favorite].present?
                 authorize_resource!(record)
                 set_resource_ivar(record)
               end
@@ -236,6 +267,7 @@ module ActiveAdmin
               f.input :name, input_html: {autofocus: true}
               f.input :note, as: :text, input_html: {rows: 3}
               f.input :published, as: :boolean,
+                required: false,
                 label: I18n.t("active_admin.favorites.published")
               if f.object.new_record?
                 f.input :path, as: :hidden

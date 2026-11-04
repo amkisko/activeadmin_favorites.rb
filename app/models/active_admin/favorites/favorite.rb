@@ -22,7 +22,6 @@ module ActiveAdmin
       attr_accessor :macros_json, :use_advanced_macros, :include_layout
 
       validates :name, :resource_key, :path, presence: true
-      validates :published, inclusion: {in: [true, false]}
       validates :macros_version, numericality: {only_integer: true, greater_than: 0}
       validates :action, inclusion: {in: ACTIONS}, allow_nil: true
 
@@ -31,6 +30,7 @@ module ActiveAdmin
       validate :validate_macros_schema
 
       before_validation :normalize_blank_query_string
+      before_validation :normalize_published
 
       before_save :sync_published_at
       before_validation :assign_default_type
@@ -292,6 +292,10 @@ module ActiveAdmin
 
       def normalize_blank_query_string
         self.query_string = "" if query_string.nil?
+      end
+
+      def normalize_published
+        self.published = false if published.nil?
       end
 
       def unique_path_query_and_type_per_user

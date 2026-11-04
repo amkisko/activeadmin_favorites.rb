@@ -1,8 +1,23 @@
+<%
+  stimulus_controller = "activeadmin-favorites--filter-favorite"
+  link_data = {testid: "filter-favorite", favorited: favorited}
+  unless favorited
+    link_data.merge!(
+      controller: stimulus_controller,
+      action: "click->#{stimulus_controller}#quickCreate",
+      "#{stimulus_controller}-create-url-value": quick_create_url,
+      "#{stimulus_controller}-path-value": path,
+      "#{stimulus_controller}-query-string-value": query_string.to_s,
+      "#{stimulus_controller}-resource-key-value": resource_key,
+      "#{stimulus_controller}-action-name-value": action_name
+    )
+  end
+%>
 <%= link_to(
   destination,
   class: "action-item-button inline-flex items-center justify-center",
   aria: {label: label},
-  data: {testid: "filter-favorite", favorited: favorited},
+  data: link_data,
   title: label
 ) do %>
   <% if favorited %>

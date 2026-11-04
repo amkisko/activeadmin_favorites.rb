@@ -18,6 +18,7 @@ en:
       published: Published for everyone
       updated: Favorite updated
       use_advanced_macros: Edit macros as JSON
+      use_advanced_macros_hint: When checked, the JSON below replaces template assignments on save.
       use_dynamic_range: Use dynamic range
       visibility:
         mine: Only me

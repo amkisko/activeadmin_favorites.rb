@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Unreleased
+
+- Save a private filter favorite from the index star in one step (suggested name; stay on the filtered index). Full form remains for edit and as a no-JavaScript fallback.
+- Drop the required marker on "Published for everyone".
+- Show macros JSON only when "Edit macros as JSON" is checked; template rows disable in that mode.
+- Hide Dynamic filters and Advanced macros on create when no date ranges are detected.
+
 ## 0.1.9 (2026-11-04)
 
 - Show Add to favorites / Edit favorite as a star icon button on index action rows (accessible name only; filled when an owned favorite matches).

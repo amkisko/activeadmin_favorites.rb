@@ -29,6 +29,8 @@ module ActiveAdmin
         next unless app.config.respond_to?(:assets)
 
         app.config.assets.precompile << "activeadmin_favorites/personalization_controller.js"
+        app.config.assets.precompile << "activeadmin_favorites/filter_favorite_controller.js"
+        app.config.assets.precompile << "activeadmin_favorites/macro_fields_controller.js"
         app.config.assets.precompile << "activeadmin_favorites/personalization_menu.css"
       end
 
@@ -36,6 +38,10 @@ module ActiveAdmin
         pin_controller = proc do |importmap|
           importmap.pin "controllers/activeadmin_favorites/personalization_controller",
             to: "activeadmin_favorites/personalization_controller.js"
+          importmap.pin "controllers/activeadmin_favorites/filter_favorite_controller",
+            to: "activeadmin_favorites/filter_favorite_controller.js"
+          importmap.pin "controllers/activeadmin_favorites/macro_fields_controller",
+            to: "activeadmin_favorites/macro_fields_controller.js"
         end
 
         application_importmap = Rails.application.importmap if Rails.application.respond_to?(:importmap)
