@@ -6,12 +6,12 @@ Andrei Makarov
 
 ## Decisions
 
-- Star add on a filtered index quick-creates a private filter favorite with a suggested name and returns to the index. Full form stays the no-JS fallback and the edit path for note, publish, and macros.
+- Star on a filtered index quick-creates a private filter favorite with a suggested name and returns to the index. Full form stays the no-JS fallback and the edit path for note, publish, and macros.
 - Drop the `published` inclusion validator that Formtastic treats as required. Normalize nil to false before validation. Mark the boolean input `required: false`.
 - Advanced macros checkbox toggles JSON field visibility and disables template rows while checked. Hint states JSON replaces templates on save.
 - On first create with no detected date ranges and advanced mode off, omit Dynamic filters and Advanced macros so the default form is name, note, and publish only.
 - Apply `assign_new_favorite_defaults` from `build_resource` so query params from the star fallback form still populate path, query string, and suggested name.
-- Patch release target: `0.1.10`. Skip RFC: desk UX of existing favorite create/edit, not a new product contract.
+- Patch release target: `0.1.10`. Skip RFC: change stays within existing create/edit desk flow, not a new product contract.
 
 ## Effects
 

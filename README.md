@@ -108,7 +108,7 @@ Catalog entries are discovered at render time from ActiveAdmin columns, filters,
 
 The gem installs:
 
-- **Add to favorites** star icon on index pages (outline when unsaved, filled when an owned filter favorite matches the current query; label is the accessible name only). With JavaScript, the star saves a private filter favorite under a suggested name and stays on the filtered index; the full form remains for edit and as a no-JavaScript fallback.
+- **Add to favorites** star icon on index pages (outline when unsaved, filled when an owned filter favorite matches the current query; label is the accessible name only). With JavaScript, the star saves a private filter favorite under a suggested name and stays on the filtered index. The full form remains for edit and as a no-JavaScript fallback.
 - **Personalize page** cogwheel on index and show pages (hidden when the page lens catalog is empty)
 - **Favorites** hub at `/admin/favorites` with type tabs (all, filters, lens, combined)
 

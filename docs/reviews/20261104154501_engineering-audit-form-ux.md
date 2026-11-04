@@ -35,7 +35,7 @@ Residual (accepted):
 2. Cold gem size and RSS not re-measured. Category: resource and budget. Severity low.
 3. `register_favorites.rb` remains a large ActiveAdmin register block. Split deferred unless AbcSize or ownership forces it. Category: organization. Severity low.
 
-Visual surface assessed (index star; favorites new/edit form): star still icon-only with accessible name; add path quick-saves without a form when JS runs; form published label no longer shows a required marker; Advanced macros checkbox reveals JSON and states that JSON replaces templates; empty-range create shows name, note, publish (and include layout) only. Narrow viewport, keyboard focus order, and contrast were not measured on a rendered browser.
+Visual surface assessed (index star; favorites new/edit form). Star stays icon-only with accessible name. Add path quick-saves without a form when JS runs. Form published label no longer shows a required marker. Advanced macros checkbox reveals JSON and states that JSON replaces templates. Empty-range create shows name, note, publish (and include layout) only. Narrow viewport, keyboard focus order, and contrast were not measured on a rendered browser.
 
 Validation observed:
 
@@ -43,7 +43,7 @@ Validation observed:
 - `bundle exec rbs validate` -> exit 0
 - `bundle exec polyrun parallel-rspec --workers 5 --merge-failures` -> exit 0
 
-No confirmed correction remains in the reviewed delta.
+No confirmed finding remains unfixed in the reviewed delta.
 
 ## Next
 

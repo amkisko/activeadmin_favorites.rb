@@ -2,9 +2,10 @@
 
 ## 0.1.10 (2026-11-04)
 
-- Save a private filter favorite from the index star in one step (suggested name; stay on the filtered index). Full form remains for edit and as a no-JavaScript fallback.
+- Save a private filter favorite from the index star in one step (suggested name; stay on the filtered index).
+- Keep the full favorites form for edit and as a no-JavaScript fallback from the star.
 - Drop the required marker on "Published for everyone".
-- Show macros JSON only when "Edit macros as JSON" is checked; template rows disable in that mode.
+- Show macros JSON only when "Edit macros as JSON" is checked; disable template rows in that mode.
 - Hide Dynamic filters and Advanced macros on create when no date ranges are detected.
 
 ## 0.1.9 (2026-11-04)
