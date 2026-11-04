@@ -4,6 +4,7 @@
 
 - Show Add to favorites / Edit favorite as a star icon button on index action rows (accessible name only; filled when an owned favorite matches).
 - Hide the Personalize page cog when the page lens catalog is empty; keep the favorites hub at `/admin/favorites`.
+- CI: refresh lockfiles for current advisories (`loofah` 2.25.3, `nokogiri` 1.19.7, `rack` 3.2.8, `rails-html-sanitizer` 1.7.2, `sqlite3` 2.10.2) and raise the sqlite3 development floor.
 
 ## 0.1.8 (2026-10-29)
 
