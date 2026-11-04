@@ -29,7 +29,7 @@ After fix:
 
 ## Next
 
-- Version bump and product CHANGELOG under Unreleased until `0.1.10` is cut.
+- Tag and publish `0.1.10` with `make release`.
 - Host adopt after publish.
 
 ## Source

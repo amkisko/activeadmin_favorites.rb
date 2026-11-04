@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 0.1.10 (2026-11-04)
 
 - Save a private filter favorite from the index star in one step (suggested name; stay on the filtered index). Full form remains for edit and as a no-JavaScript fallback.
 - Drop the required marker on "Published for everyone".

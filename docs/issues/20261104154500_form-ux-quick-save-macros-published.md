@@ -21,7 +21,7 @@ Andrei Makarov
 
 ## Next
 
-- Cut and publish `0.1.10`.
+- Tag and publish `0.1.10` with `make release`.
 - Hosts: `bundle update --conservative activeadmin_favorites`; refresh locale copy if `use_advanced_macros_hint` is mirrored under host locales.
 
 ## Source

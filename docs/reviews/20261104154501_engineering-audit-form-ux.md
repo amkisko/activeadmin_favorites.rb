@@ -47,7 +47,7 @@ No confirmed correction remains in the reviewed delta.
 
 ## Next
 
-- Publish `0.1.10` when ready.
+- Tag and publish `0.1.10` with `make release`.
 - Optional later: browser-level example for star click and macros toggle.
 
 ## Source
