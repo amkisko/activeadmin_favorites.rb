@@ -108,11 +108,11 @@ Catalog entries are discovered at render time from ActiveAdmin columns, filters,
 
 The gem installs:
 
-- **Add to favorites** on index pages (saved filters)
-- **Personalize page** cogwheel on index and show pages
-- **Favorites** hub with type tabs (all, filters, lens, combined)
+- **Add to favorites** star icon on index pages (outline when unsaved, filled when an owned filter favorite matches the current query; label is the accessible name only)
+- **Personalize page** cogwheel on index and show pages (hidden when the page lens catalog is empty)
+- **Favorites** hub at `/admin/favorites` with type tabs (all, filters, lens, combined)
 
-Defaults are stored in `active_admin_view_lens_defaults`. Named lens favorites and combined favorites use `admin_favorites.layout`.
+Defaults are stored in `active_admin_view_lens_defaults`. Named lens favorites and combined favorites use `admin_favorites.layout`. The favorites hub stays reachable from `/admin/favorites` and from personalization menus on pages that still have catalog entries.
 
 ## Development
 

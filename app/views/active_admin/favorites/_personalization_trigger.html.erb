@@ -7,7 +7,7 @@
   menu_id = "personalization-menu-#{resource_key}-#{action_name}"
 %>
 <div
-  class="relative"
+  class="relative hidden"
   data-controller="<%= stimulus_controller %>"
   data-<%= stimulus_controller %>-resource-key-value="<%= resource_key %>"
   data-<%= stimulus_controller %>-action-name-value="<%= action_name %>"
@@ -26,6 +26,7 @@
     show_rows: t("active_admin.favorites.groups.show_rows", default: "Rows")
   }.to_json %>"
   data-<%= stimulus_controller %>-empty-catalog-label-value="<%= t("active_admin.favorites.no_personalization_items") %>"
+  data-testid="page-personalization"
 >
   <button
     type="button"

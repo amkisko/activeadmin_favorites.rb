@@ -11,6 +11,8 @@ RSpec.describe "Personalization menu markup", type: :request do
     expect(response.body).to include("favorites-personalization-menu__actions")
     expect(response.body).to include("favorites-personalization-menu__action--wide")
     expect(response.body).to include(%(data-dropdown-toggle="personalization-menu-articles-index"))
+    expect(response.body).to include(%(data-testid="page-personalization"))
+    expect(response.body).to include(%(class="relative hidden"))
   end
 
   it "links the personalization menu stylesheet when the host head includes it" do

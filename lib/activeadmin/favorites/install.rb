@@ -58,6 +58,7 @@ module ActiveAdmin
         config.add_action_item(FILTER_FAVOURITE_ACTION, only: :index, priority: 5) do
           sanitized_query = Favorite.sanitize_query_string(request.query_string)
           user = send(ActiveAdmin::Favorites.config.current_user_method)
+          favorited = false
 
           if sanitized_query.blank?
             label = I18n.t("active_admin.favorites.add_favorite")
@@ -74,6 +75,7 @@ module ActiveAdmin
             }
             lookup[ActiveAdmin::Favorites.config.user_foreign_key] = user.id
             owned_existing = Favorite.filters_kind.find_by(lookup)
+            favorited = owned_existing.present?
 
             label = if owned_existing
               I18n.t("active_admin.favorites.edit_favorite")
@@ -93,7 +95,8 @@ module ActiveAdmin
             end
           end
 
-          link_to label, destination, class: "action-item-button"
+          render partial: "active_admin/favorites/filter_favorite_button",
+            locals: {label: label, destination: destination, favorited: favorited}
         end
       end
 

@@ -18,6 +18,19 @@ export default class extends Controller {
 
   connect() {
     this.catalogLoaded = false
+    this.boundApplyEmptyCatalogVisibility = () => this.applyEmptyCatalogVisibility()
+    // Catalog JSON is rendered at the end of the resource page; wait for full parse.
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", this.boundApplyEmptyCatalogVisibility, {once: true})
+    } else {
+      this.applyEmptyCatalogVisibility()
+    }
+    document.addEventListener("turbo:load", this.boundApplyEmptyCatalogVisibility)
+  }
+
+  disconnect() {
+    document.removeEventListener("DOMContentLoaded", this.boundApplyEmptyCatalogVisibility)
+    document.removeEventListener("turbo:load", this.boundApplyEmptyCatalogVisibility)
   }
 
   prepareMenu() {
@@ -40,6 +53,11 @@ export default class extends Controller {
     }
   }
 
+  applyEmptyCatalogVisibility() {
+    // Start hidden in markup; reveal only when the deferred catalog has entries.
+    this.element.classList.toggle("hidden", this.catalogEntries().length === 0)
+  }
+
   escapeHtml(value) {
     return String(value)
       .replaceAll("&", "&amp;")
@@ -60,9 +78,11 @@ export default class extends Controller {
     if (groups.length === 0) {
       this.catalogGroupsTarget.innerHTML =
         `<p class="favorites-personalization-menu__empty">${this.escapeHtml(this.emptyCatalogLabelValue)}</p>`
+      this.applyEmptyCatalogVisibility()
       return
     }
 
+    this.applyEmptyCatalogVisibility()
     this.catalogGroupsTarget.innerHTML = groups.map((group) => {
       const label = this.escapeHtml(this.groupLabelsValue[group] || group.replace(/_/g, " "))
       const items = grouped[group].map((entry) => {

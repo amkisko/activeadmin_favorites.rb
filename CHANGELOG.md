@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.1.9 (2026-11-04)
+
+- Show Add to favorites / Edit favorite as a star icon button on index action rows (accessible name only; filled when an owned favorite matches).
+- Hide the Personalize page cog when the page lens catalog is empty; keep the favorites hub at `/admin/favorites`.
+
 ## 0.1.8 (2026-10-29)
 
 - Fix Active Admin view-path detection so sibling gems such as `activeadmin-command_palette` are not treated as Active Admin. Prefer `ActiveAdmin::Engine.root`, with a fallback that requires a digit version segment after `activeadmin-`.
