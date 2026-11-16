@@ -13,4 +13,7 @@ ActiveAdmin::Favorites.configure do |config|
   config.user_association_name = :user
   config.user_label_method = :email
   config.current_user_method = :current_user
+
+  # When GraphQL is loaded for the admin namespace, Favorites is exposed by default.
+  # config.graphql = false
 end

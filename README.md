@@ -114,6 +114,16 @@ The gem installs:
 
 Defaults are stored in `active_admin_view_lens_defaults`. Named lens favorites and combined favorites use `admin_favorites.layout`. The favorites hub stays reachable from `/admin/favorites` and from personalization menus on pages that still have catalog entries.
 
+## GraphQL
+
+When GraphQL is enabled on the admin namespace, the Favorites resource is exposed as type `Favorite` (`favorites` / `favorite`, plus create/update/delete). Create assigns the current admin user. Opt out:
+
+```ruby
+ActiveAdmin::Favorites.configure do |config|
+  config.graphql = false
+end
+```
+
 ## Development
 
 ```bash

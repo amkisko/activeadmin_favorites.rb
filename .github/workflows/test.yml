@@ -44,6 +44,7 @@ jobs:
     env:
       BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
       RAILS_ENV: test
+      RSPEC_EXAMPLE_TIMEOUT_SEC: "120"
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -54,6 +55,9 @@ jobs:
           ruby-version: ${{ matrix.ruby_version }}
           bundler-cache: true
 
+      - name: Install Playwright Chromium
+        run: npx --yes playwright install chromium --with-deps
+
       - name: Run tests
         run: bundle exec polyrun parallel-rspec --workers 5 --merge-failures
 
@@ -62,6 +66,7 @@ jobs:
     env:
       BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/rails8ruby34.gemfile
       RAILS_ENV: test
+      RSPEC_EXAMPLE_TIMEOUT_SEC: "120"
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -70,6 +75,8 @@ jobs:
         with:
           ruby-version: "3.4"
           bundler-cache: true
+      - name: Install Playwright Chromium
+        run: npx --yes playwright install chromium --with-deps
       - run: POLYRUN_COVERAGE=1 bundle exec polyrun parallel-rspec --workers 5 --merge-failures
       - name: Report coverage for Sonar/Codecov
         run: >

@@ -18,20 +18,17 @@ end
 require "rspec/rails"
 require "factory_bot"
 require "activeadmin"
+require "capybara/rails"
+require "capybara/rspec"
+require "capybara-playwright-driver"
+
+Dir[File.expand_path("support/**/*.rb", __dir__)].sort.each { |path| require path }
 
 ActiveAdmin::Favorites::Favorite.define_favorites_user_association!
 ActiveAdmin::Favorites::ViewLensDefault.define_favorites_user_association!
 
 Rails.application.reload_routes!
 ActiveAdmin.application.load!
-
-RSpec.configure do |config|
-  config.use_transactional_fixtures = true
-  config.include FactoryBot::Syntax::Methods
-  config.filter_run_when_matching :focus
-  config.order = :random
-  Kernel.srand config.seed
-end
 
 module AuthHelpers
   def sign_in(user)
@@ -40,7 +37,22 @@ module AuthHelpers
 end
 
 RSpec.configure do |config|
+  config.use_transactional_fixtures = true
+  config.include FactoryBot::Syntax::Methods
   config.include AuthHelpers, type: :request
+  config.include AuthHelpers, type: :system
+  config.include GraphqlRequestHelper, type: :request
+  config.infer_spec_type_from_file_location!
+  config.filter_run_when_matching :focus
+  config.filter_rails_from_backtrace!
+  config.order = :random
+  Kernel.srand config.seed
+
+  config.before(:each, type: :system) do
+    skip PlaywrightEnv.hint unless PlaywrightEnv.cli_available?
+
+    driven_by :playwright
+  end
 end
 
 FactoryBot.define do

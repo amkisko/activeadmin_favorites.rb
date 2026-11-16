@@ -16,6 +16,7 @@ else
 end
 
 require "activeadmin"
+require "activeadmin/graphql"
 
 module Dummy
   class Application < Rails::Application

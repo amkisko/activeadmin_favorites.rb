@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.2.0 (2026-11-16)
+
+- Expose Favorites as GraphQL type `Favorite` when GraphQL is enabled on the admin namespace.
+- Assign the current admin user when creating a favorite through GraphQL.
+- Allow hosts to skip Favorites GraphQL with `config.graphql = false`.
+
 ## 0.1.10 (2026-11-04)
 
 - Save a private filter favorite from the index star in one step (suggested name; stay on the filtered index).
@@ -16,7 +22,7 @@
 
 ## 0.1.8 (2026-10-29)
 
-- Fix Active Admin view-path detection so sibling gems such as `activeadmin-command_palette` are not treated as Active Admin. Prefer `ActiveAdmin::Engine.root`, with a fallback that requires a digit version segment after `activeadmin-`.
+- Fix Active Admin view-path detection so sibling gems are not treated as Active Admin. Prefer `ActiveAdmin::Engine.root`, with a fallback that requires a digit version segment after `activeadmin-`.
 - Remove the gem `active_admin/_html_head` override. Hosts must link `activeadmin_favorites/personalization_menu` from their own Active Admin head.
 
 ## 0.1.7 (2026-10-29)

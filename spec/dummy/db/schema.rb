@@ -1,6 +1,19 @@
 # frozen_string_literal: true
 
 ActiveRecord::Schema.define(version: 20_260_709_130_000) do
+  create_table :active_admin_comments, force: :cascade do |t|
+    t.string :namespace
+    t.text :body
+    t.string :resource_type
+    t.bigint :resource_id
+    t.string :author_type
+    t.bigint :author_id
+    t.timestamps
+    t.index [:author_type, :author_id]
+    t.index [:namespace]
+    t.index [:resource_type, :resource_id]
+  end
+
   create_table :users, force: :cascade do |t|
     t.string :email
     t.timestamps

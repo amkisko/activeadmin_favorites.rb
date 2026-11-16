@@ -19,6 +19,30 @@ module ActiveAdmin
           permit_params :name, :note, :path, :query_string, :resource_key, :published, :macros_json,
             :use_advanced_macros, :kind, :type, :action, :include_layout, layout: {}
 
+          if defined?(ActiveAdmin::GraphQL)
+            if ActiveAdmin::Favorites.config.graphql
+              graphql do
+                type_name "Favorite"
+
+                resolve_create do |proxy:, attributes:, auth:, **|
+                  user = auth.user
+                  raise ::GraphQL::ExecutionError, "not authenticated" if user.blank?
+
+                  record = proxy.build_new(attributes)
+                  record.public_send(:"#{ActiveAdmin::Favorites.config.user_foreign_key}=", user.id)
+                  record.type = FiltersFavorite.name if record.type.blank?
+                  unless record.save
+                    raise ActiveAdmin::GraphQL::MutationExecutionError.validation(record)
+                  end
+                  record
+                end
+              end
+            else
+              # Namespace default keeps resources enabled; opt-out must disable explicitly.
+              graphql.enabled = false
+            end
+          end
+
           collection_action :quick_create, method: :post do
             user = current_favorites_user
             path = params.require(:path)
