@@ -1,6 +1,7 @@
 spec/activeadmin/favorites/view_lens/applicator_spec.rb
 spec/activeadmin/favorites/view_lens/catalog_spec.rb
 spec/activeadmin/favorites/view_lens/layout_spec.rb
+spec/lib/activeadmin/favorites/graphql_registration_spec.rb
 spec/lib/activeadmin/favorites/migration_helpers_spec.rb
 spec/lib/activeadmin/favorites/migration_support_spec.rb
 spec/lib/activeadmin/favorites/page_safe_registration_spec.rb
@@ -12,10 +13,13 @@ spec/models/favorite_spec.rb
 spec/release_spec.rb
 spec/requests/admin_favorites_spec.rb
 spec/requests/favorite_form_ux_spec.rb
+spec/requests/favorites_graphql_spec.rb
 spec/requests/filter_favorite_button_spec.rb
 spec/requests/filter_favorite_quick_create_spec.rb
 spec/requests/index_only_resource_formats_spec.rb
 spec/requests/lens_catalog_data_spec.rb
 spec/requests/personalization_menu_spec.rb
 spec/requests/view_lens_preferences_spec.rb
+spec/system/favorites_hub_spec.rb
+spec/system/filter_favorite_quick_create_spec.rb
 spec/views/active_admin/favorites/lens_catalog_data_spec.rb
