@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    activeadmin_favorites (0.1.10)
+    activeadmin_favorites (0.2.0)
       activeadmin (>= 4.0.0.beta13, < 5)
       importmap-rails
       rails (>= 7.2)
@@ -463,7 +463,7 @@ CHECKSUMS
   actionview (8.1.4.1) sha256=d25b4d9cf8d0c0195ffcfe8b2cf3fcbe6fea54fd7c17f1a9cb8182881463f12b
   activeadmin (4.0.0.beta22) sha256=0f890af53164254f51426a8675999b6aeaae859c10642dae84c5655286d941eb
   activeadmin-graphql (0.4.1) sha256=a3a4987a83e3bddb27af581d94884a5a0b25ac6e5cb017c753a03e0e9006232f
-  activeadmin_favorites (0.1.10)
+  activeadmin_favorites (0.2.0)
   activejob (8.1.4.1) sha256=82c4c9311ea1016d5f7f134a0c5f9b6527cad5a6237f5f3f60aa17984ef36229
   activemodel (8.1.4.1) sha256=063caf105372fbc98b2d789e4be23de63ac5c043f7d9330f04e2caddb7012805
   activerecord (8.1.4.1) sha256=bd65599ca0b5d210937f835d42c7aff69d271741c75aab022730be6cbce67e87

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Favorites GraphQL registration" do
+RSpec.describe ActiveAdmin::Favorites::RegisterFavorites do
   def favorite_resource
     namespace = ActiveAdmin.application.namespace(ActiveAdmin::Favorites.config.namespace_name)
     namespace.resources.find do |resource|
