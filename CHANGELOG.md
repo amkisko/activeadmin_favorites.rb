@@ -4,6 +4,7 @@
 
 - Pin Favorites Stimulus controllers only on the Active Admin import map so application pages do not publish those module keys.
 - On Favorites create without a prefilled destination, show editable path and resource fields so the form can be completed and saved.
+- CI: refresh lockfiles for current advisories (`graphql` 2.6.16, `puma` 8.1.2) and raise the graphql development floor.
 
 ## 0.2.0 (2026-11-16)
 

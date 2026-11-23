@@ -140,7 +140,7 @@ GEM
     formtastic_i18n (0.7.0)
     globalid (1.4.0)
       activesupport (>= 6.1)
-    graphql (2.6.15)
+    graphql (2.6.16)
       base64
       fiber-storage
       logger
@@ -228,7 +228,7 @@ GEM
     prism (1.9.0)
     prosopite (2.2.0)
     public_suffix (7.0.5)
-    puma (8.1.1)
+    puma (8.1.2)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.8)
@@ -409,7 +409,7 @@ DEPENDENCIES
   capybara (~> 3.40)
   capybara-playwright-driver (~> 0.5)
   factory_bot (~> 6)
-  graphql (>= 2.6.15, < 3)
+  graphql (>= 2.6.16, < 3)
   polyrun (>= 2.2.9)
   prosopite (~> 2.0)
   puma (>= 5.0)
