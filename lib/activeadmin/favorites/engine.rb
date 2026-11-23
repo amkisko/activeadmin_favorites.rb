@@ -35,18 +35,16 @@ module ActiveAdmin
       end
 
       initializer "activeadmin_favorites.importmap", after: :importmap do
-        pin_controller = proc do |importmap|
-          importmap.pin "controllers/activeadmin_favorites/personalization_controller",
+        next unless defined?(ActiveAdmin) && ActiveAdmin.respond_to?(:importmap)
+
+        ActiveAdmin.importmap.draw do
+          pin "controllers/activeadmin_favorites/personalization_controller",
             to: "activeadmin_favorites/personalization_controller.js"
-          importmap.pin "controllers/activeadmin_favorites/filter_favorite_controller",
+          pin "controllers/activeadmin_favorites/filter_favorite_controller",
             to: "activeadmin_favorites/filter_favorite_controller.js"
-          importmap.pin "controllers/activeadmin_favorites/macro_fields_controller",
+          pin "controllers/activeadmin_favorites/macro_fields_controller",
             to: "activeadmin_favorites/macro_fields_controller.js"
         end
-
-        application_importmap = Rails.application.importmap if Rails.application.respond_to?(:importmap)
-        application_importmap&.draw(&pin_controller)
-        ActiveAdmin.importmap.draw(&pin_controller) if defined?(ActiveAdmin) && ActiveAdmin.respond_to?(:importmap)
       end
 
       initializer "activeadmin_favorites.i18n" do

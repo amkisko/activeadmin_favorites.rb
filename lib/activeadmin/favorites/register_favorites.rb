@@ -294,9 +294,15 @@ module ActiveAdmin
                 required: false,
                 label: I18n.t("active_admin.favorites.published")
               if f.object.new_record?
-                f.input :path, as: :hidden
-                f.input :query_string, as: :hidden
-                f.input :resource_key, as: :hidden
+                if f.object.path.present? && f.object.resource_key.present?
+                  f.input :path, as: :hidden
+                  f.input :query_string, as: :hidden
+                  f.input :resource_key, as: :hidden
+                else
+                  f.input :path
+                  f.input :query_string, required: false
+                  f.input :resource_key
+                end
                 f.input :kind, as: :hidden
                 f.input :action, as: :hidden
               end

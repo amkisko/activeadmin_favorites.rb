@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.2.1 (2026-11-23)
+
+- Pin Favorites Stimulus controllers only on the Active Admin import map so application pages do not publish those module keys.
+- On Favorites create without a prefilled destination, show editable path and resource fields so the form can be completed and saved.
+
 ## 0.2.0 (2026-11-16)
 
 - Expose Favorites as GraphQL type `Favorite` when GraphQL is enabled on the admin namespace.
