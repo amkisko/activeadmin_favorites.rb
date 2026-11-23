@@ -44,4 +44,37 @@ RSpec.describe ReleaseVersionCheck do
       expect(output).not_to include("--generate-notes")
     end
   end
+
+  it "creates the GitHub release when git push fails on a secondary origin pushurl" do
+    push_failure_bootstrap = <<~RUBY
+      require_relative "usr/lib/release_version_check"
+      module ReleaseVersionCheck
+        def self.warn_if_already_released(**); end
+      end
+      Kernel.prepend(Module.new do
+        def system(*command)
+          line = command.last.to_s
+          puts "EXEC:\#{line}"
+          return false if line.include?("git push")
+
+          true
+        end
+
+        def `(command)
+          ""
+        end
+      end)
+      load "usr/bin/release.rb"
+    RUBY
+
+    output, error, status = Open3.capture3(Gem.ruby, "-e", push_failure_bootstrap, stdin_data: "\n")
+
+    aggregate_failures do
+      expect(status).to be_success, error
+      expect(output).to include("EXEC:gem push")
+      expect(output).to include("git push")
+      expect(output).to include("Continuing after failure")
+      expect(output).to include("EXEC:gh release create")
+    end
+  end
 end

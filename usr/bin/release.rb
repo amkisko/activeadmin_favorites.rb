@@ -12,17 +12,21 @@ require_relative "../lib/release_version_check"
 
 FileUtils.mkdir_p("tmp")
 
-def execute_command(command)
+def execute_command(command, allow_failure: false)
   green = "\033[0;32m"
   red = "\033[1;31m"
+  yellow = "\033[1;33m"
   nc = "\033[0m"
 
   puts "#{green}#{command}#{nc}"
   shell_command = command.include?("|") ? "set -o pipefail; #{command}" : command
-  unless system("bash", "-c", shell_command)
-    puts "#{red}Command failed: #{command}#{nc}"
-    exit 1
-  end
+  return true if system("bash", "-c", shell_command)
+
+  puts "#{red}Command failed: #{command}#{nc}"
+  exit 1 unless allow_failure
+
+  puts "#{yellow}Continuing after failure (allow_failure).#{nc}"
+  false
 end
 
 gemspec = Dir.glob("*.gemspec").fetch(0)
@@ -81,5 +85,5 @@ File.write(notes_path, changelog_notes)
 
 execute_command("gem push #{gem_file}")
 execute_command("git tag #{version}")
-execute_command("git push origin HEAD \"refs/tags/#{version}\"")
+execute_command("git push origin HEAD \"refs/tags/#{version}\"", allow_failure: true)
 execute_command("gh release create #{version} --title #{version} --notes-file #{notes_path}")
