@@ -105,7 +105,7 @@ module ActiveAdmin
               apply_layout_from_params(resource)
 
               if resource.errors.any? || !resource.save
-                render :new, status: :unprocessable_entity
+                render :new, status: :unprocessable_content
               else
                 redirect_to admin_favorites_path(kind: resource.kind), notice: create_notice_for(resource)
               end
@@ -122,7 +122,7 @@ module ActiveAdmin
               apply_layout_from_params(resource)
 
               if resource.errors.any? || !resource.save
-                render :edit, status: :unprocessable_entity
+                render :edit, status: :unprocessable_content
               else
                 redirect_to admin_favorites_path(kind: resource.kind), notice: I18n.t("active_admin.favorites.updated")
               end

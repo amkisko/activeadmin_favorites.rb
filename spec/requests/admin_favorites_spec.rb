@@ -88,7 +88,7 @@ RSpec.describe "Admin favorites", type: :request do
       }
     }
 
-    expect(response).to have_http_status(:unprocessable_entity)
+    expect(response).to have_http_status(:unprocessable_content)
     expect(ActiveAdmin::Favorites::Favorite.where(user: user, path: "/admin/articles", query_string: "order=id_desc").count).to eq(1)
   end
 

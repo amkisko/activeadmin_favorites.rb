@@ -74,7 +74,7 @@ RSpec.describe "Favorite blank create form", type: :request do
       }
     }
 
-    expect(response).to have_http_status(:unprocessable_entity)
+    expect(response).to have_http_status(:unprocessable_content)
     expect(response.body).to include("Incomplete favorite")
     expect(ActiveAdmin::Favorites::Favorite.where(user: user, name: "Incomplete favorite")).to be_empty
 
