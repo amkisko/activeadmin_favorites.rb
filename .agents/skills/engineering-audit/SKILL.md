@@ -21,6 +21,8 @@ Read `engineering-audit.md` in this skill directory for dimensions, indicators, 
 
 Read the matching optional file when the product has that surface: `product-surface.md`, `privacy.md`, `performance.md`, `observability.md`, `security.md`, `contracts.md`, `learned-systems.md`, `lineage.md`. When security mode runs, also read every applicable companion named in `security.md`. Skip each file whose surface is absent and state the reason. Stay on concepts. Do not require a named framework or vendor tool.
 
+When the system has a cache or rebuildable derived state, use `durable-cache` when that skill is available. This skill owns cross-stage evidence, findings, and ranking; `durable-cache` owns the cache contract and lifecycle. Continue with the cache stage checks here when `durable-cache` is unavailable.
+
 ## Quick reference
 
 Pipeline:
@@ -29,7 +31,7 @@ Pipeline:
 ingress -> app logic -> cache -> database -> queue -> worker -> external API -> egress
 ```
 
-Order findings by danger, then certainty, then impact, then fix cost. Present the smallest credible fix before structural rewrite. Separate missing coverage from futile coverage. Indicators are categorizable, measurable, and representable.
+Order findings by danger, then certainty (replicated over theory), then impact, then fix cost. Present the smallest credible fix before structural rewrite. Hunt iteratively; lead with replicated findings; still output high-potential theories as inference or `needs_validation`. Remediation after a separate fix request follows working-rules: failing executable check first, then fix. Separate missing coverage from futile coverage. Indicators are categorizable, measurable, and representable.
 
 When the system has external services, devices, operators, or physical actuators, also run boundary and control mode: who commands whom, interface deviations, and whether intended, commanded, reported, inferred, and physical state can diverge without an alarm.
 
